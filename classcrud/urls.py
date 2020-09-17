@@ -16,9 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from crud_app.views import LetterListView
+from crud_app.views import LetterDetailView
+from crud_app.views import LetterCreateView
+from crud_app.views import LetterDeleteView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',LetterListView.as_view(), name="index"),
+    path('detail/<int:pk>',LetterDetailView.as_view(), name="detail"),
+    path('create/',LetterCreateView.as_view(), name="create"),
+    path('delete/<int:pk>',LetterDeleteView.as_view(), name="delete"),
 
 ]

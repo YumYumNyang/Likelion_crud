@@ -6,7 +6,13 @@
     <title>Document</title>
   </head>
   <body>
-    장고오오오오 {% for letter in letters %} {{letter.title}}<br />{{letter.sender}}<br />{{letter.content}}<br />
+    장고오오오오 {% for letter in letters %}
+    <a href="{% url 'detail' letter.id %}">디테일 페이지</a>
+    {{letter.title}}
+    <br />{{letter.sender}} <br />{{letter.content}}<br />
+    <a href="{% url 'delete' letter.id %}">삭제</a>
     {% endfor %}
+
+    <a href="{% url 'create' %}">편지쓰기</a>
   </body>
 </html>
